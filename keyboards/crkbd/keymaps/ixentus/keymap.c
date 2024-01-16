@@ -150,7 +150,7 @@ bool oled_task_user(void) {
 
 #ifdef RGB_MATRIX_ENABLE
 
-void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t i = led_min; i <= led_max; i++) {
         if (g_led_config.flags[i] & LED_FLAG_UNDERGLOW) {
             switch (get_highest_layer(layer_state)) {
@@ -184,6 +184,7 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         }
     }
+    return false;
 }
 
 #endif // RGB_MATRIX_ENABLE
