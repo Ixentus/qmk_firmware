@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include QMK_KEYBOARD_H
-#include <stdio.h>
+//#include <stdio.h>
 
 enum user_layers {
     _BASE,
@@ -30,7 +30,6 @@ enum user_layers {
     _QWERT,
     _QNUM,
 };
-    
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BASE] = LAYOUT_split_3x6_3(TG(7), KC_Q, KC_W, KC_F, KC_P, KC_B, KC_J, KC_L, KC_U, KC_Y, KC_QUOT, KC_NO, KC_NO, LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), KC_G, KC_M, RSFT_T(KC_N), RCTL_T(KC_E), RALT_T(KC_I), RGUI_T(KC_O), KC_NO, KC_NO, KC_Z, KC_X, KC_C, KC_D, KC_V, KC_K, KC_H, KC_COMM, KC_DOT, KC_SLSH, KC_NO, LT(1,KC_ESC), LT(2,KC_TAB), LT(3,KC_SPC), LT(4,KC_ENT), LT(5,KC_BSPC), LT(6,KC_DEL)),
@@ -93,8 +92,10 @@ void oled_render_wpm(void) {
 	oled_write_ln_P(PSTR(" WPM"), false);
 	oled_write_P(PSTR(" "), false);
 	oled_write_ln(get_u8_str(get_current_wpm(), ' '), false);
+#endif // WPM_ENABLE
 }
 
+#ifdef WPM_ENABLE
 static uint8_t anim = 0;
 #endif // WPM_ENABLE
 
@@ -114,7 +115,7 @@ void oled_render_pet(void) {
 		}
 	};
 
-#ifdef WPM_ENABLE		
+#ifdef WPM_ENABLE
 	if (get_current_wpm() > 20) {
 		anim = (anim + 1) % 2;
 		oled_write_P(pet_sprite[anim], false);

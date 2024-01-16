@@ -37,13 +37,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     #define RGB_MATRIX_KEYPRESSES
     #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
     #define RGB_DISABLE_WHEN_USB_SUSPENDED
-    #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 150
     #define RGB_MATRIX_LED_FLUSH_LIMIT 16
     #define RGB_MATRIX_HUE_STEP 8
     #define RGB_MATRIX_SAT_STEP 8
     #define RGB_MATRIX_VAL_STEP 5
     #define RGB_MATRIX_SPD_STEP 10
-    
+
     // Effects
     #define ENABLE_RGB_MATRIX_ALPHAS_MODS
     #define ENABLE_RGB_MATRIX_CYCLE_OUT_IN
@@ -52,7 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
     #define RGB_MATRIX_KEYPRESSES
-#endif 
+#endif
 
 #define OLED_FONT_H "ixentuslcdfont.c"
 
